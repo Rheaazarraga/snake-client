@@ -1,24 +1,45 @@
+// Stores the active TCP connection object.
+let connection;
+
+const handleUserInput = function(key) {
+    if (key === '\u0003') {
+      process.exit();
+    }
+
+  if (key === 'W') {
+  connection.write('Move: up')
+  } 
+  
+  if (key ==='S') {
+  connection.write('Move: down')
+  } 
+  
+  if (key === 'A') {
+  connection.write('Move: left')
+  } 
+  
+  if (key === 'D') {
+  connection.write('Move: right');
+  }
+
+ };
+
+
 const { stdin } = require('process');
 const { connect } = require('./client');
 console.log('Connecting ...');
 connect();
 
-const setupInput = function() {
+
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
+  stdin.on('data', handleUserInput);
   return stdin;
 }
 
-const handleUserInput = function() {
-  stdin.on('data', (key) => {
-    if (key === '\u0003') {
-      process.exit();
-    }
-  });
-};
 
-module.exports = {
-  setupInput
-};
+module.exports = { setupInput };
