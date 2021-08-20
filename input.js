@@ -7,37 +7,35 @@ const handleUserInput = function(key) {
     }
 
   if (key === 'W') {
-  connection.write('Move: up')
-  } 
-  
-  if (key ==='S') {
-  connection.write('Move: down')
+  connection.write('Move: up');
+  console.log('up');
   } 
   
   if (key === 'A') {
-  connection.write('Move: left')
+    connection.write('Move: left');
+    console.log('left')
+  } 
+
+  if (key ==='S') {
+  connection.write('Move: down')
+  console.log('down');
   } 
   
   if (key === 'D') {
   connection.write('Move: right');
+  console.log('right');
   }
 
- };
+ }
 
 
-const { stdin } = require('process');
-const { connect } = require('./client');
-console.log('Connecting ...');
-connect();
-
-
-const setupInput = function(conn) {
+ const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
-  stdin.setEncoding('utf8');
-  stdin.resume();
+  stdin.setEncoding("utf8");
   stdin.on('data', handleUserInput);
+  stdin.resume();
   return stdin;
 }
 
