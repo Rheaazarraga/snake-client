@@ -18,7 +18,7 @@ This game is inspired by the game [Snek](https://store.steampowered.com/app/7655
 
 ## Final Product
 
-
+![snek](https://user-images.githubusercontent.com/84409001/130310715-ec05e760-83a2-44eb-8d83-851c685f44d7.png)
 
 
 ## Instructions
