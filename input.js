@@ -1,4 +1,5 @@
-// Stores the active TCP connection object.
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, MESSAGES } = require('./constants');
+
 let connection;
 
 const handleUserInput = function(key) {
@@ -6,41 +7,21 @@ const handleUserInput = function(key) {
       process.exit();
     }
 
-  if (key === 'w') {
-  connection.write('Move: up');
-  } 
-  
-  if (key === 'a') {
-    connection.write('Move: left');
-  } 
-
-  if (key ==='s') {
-  connection.write('Move: down')
-  } 
-  
-  if (key === 'd') {
-  connection.write('Move: right');
-  }
-
-  if (key === '1') {
-    connection.write('Say: SsSssSs');
-  }
-
-  if (key === '2') {
-    connection.write('Say: I can\'t be defeated!');
-  }
-
-  if (key === '3') {
-    connection.write('Say: nom nom nom');
-  }
-
-  if (key === '4') {
-    connection.write('Say:❤️❤️❤️ ');
-  }
-
-  if (key === '5') {
-    connection.write('Say: HAHA you died');
-  }
+    if (key === MOVE_UP_KEY) {
+      connection.write('Move: up');
+    }
+    if (key === MOVE_LEFT_KEY) {
+      connection.write('Move: left');
+    }
+    if (key === MOVE_DOWN_KEY) {
+      connection.write('Move: down');
+    }
+    if (key === MOVE_RIGHT_KEY) {
+      connection.write('Move: right');
+    }
+    if (MESSAGES[key]) {
+      connection.write(MESSAGES[key]);
+    }
 
  };
 
@@ -49,7 +30,7 @@ const handleUserInput = function(key) {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
+  stdin.setEncoding('utf8');
   stdin.on('data', handleUserInput);
   stdin.resume();
   return stdin;
