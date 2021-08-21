@@ -10,7 +10,7 @@ const MESSAGES = {
   '3': 'Say: nom nom nom',
   '4': 'Say: ❤️❤️❤️',
   '5': 'Say: HAHA you died!'
-}
+};
 
 //EXPORT
 module.exports = {
