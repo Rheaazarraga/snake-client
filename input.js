@@ -23,26 +23,22 @@ const handleUserInput = function(key) {
   }
 
   if (key === '1') {
-    connection.write('Say: I can\'t be defeated!');
-  }
-
-  if (key === '2') {
-    connection.write('Say: Nomnomnom');
-  }
-
-  if (key === '3') {
     connection.write('Say: SsSssSs');
   }
 
+  if (key === '2') {
+    connection.write('Say: I can\'t be defeated!');
+  }
+
+  if (key === '3') {
+    connection.write('Say: nom nom nom');
+  }
+
   if (key === '4') {
-    connection.write('Say: LMAO');
+    connection.write('Say:❤️❤️❤️ ');
   }
 
   if (key === '5') {
-    connection.write('Say: gg');
-  }
-
-  if (key === '6') {
     connection.write('Say: HAHA you died');
   }
 
