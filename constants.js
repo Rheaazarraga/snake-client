@@ -12,8 +12,7 @@ const MESSAGES = {
   '5': 'Say: HAHA you died!'
 }
 
-
-
+//EXPORT
 module.exports = {
   IP,
   PORT,
